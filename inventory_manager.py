@@ -27,6 +27,27 @@ class Main(QMainWindow, FORM_CLASS):
     # function for managing click events
     def Handel_Buttons(self):
         self.refresh_btn.clicked.connect(self.getData)
+        self.search_push_button.clicked.connect(self.search)
+    
+    # function to search for item in the inventory
+    def search(self, id):
+         # establishing connection to the database
+        connection = pymysql.connect(host="localhost", user="root", password="", database="inventory_manager", charset="utf8mb4")
+        nbr = int(self.count_level_filter.text())
+        #creating a controller object for managing database query
+        controller = connection.cursor()
+        sql = '''SELECT * FROM data WHERE count <?'''
+        controller.execute(sql, [nbr])
+        result = controller.fetchall()
+        
+        #initialization of the number of rows in the table
+        self.inventory_table.setRowCount(0)
+        
+        #looping through the returned data
+        for row_count, row_data in enumerate(result):
+            self.inventory_table.insertRow(row_count)
+            for column_count, data in enumerate(row_data):
+                self.inventory_table.setItem(row_count, column_count, QTableWidgetItem(str(data)))
         
     # function that pulls data from the database
     def getData(self):
@@ -36,7 +57,8 @@ class Main(QMainWindow, FORM_CLASS):
         #creating a controller object for managing database query
         controller = connection.cursor()
         sql = '''SELECT * FROM data'''
-        result = controller.execute(sql)
+        controller.execute(sql)
+        result = controller.fetchall()
         
         #initialization of the number of rows in the table
         self.inventory_table.setRowCount(0)
