@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QApplication
 
 import sys
 from os import path
+from PyQt5.sip import dump
 from PyQt5.uic import loadUiType
 
 FORM_CLASS,_=loadUiType(path.join(path.dirname('__file__'),"roboto.ui"))
@@ -25,14 +26,28 @@ class Main(QMainWindow, FORM_CLASS):
     
     # function for managing click events
     def Handel_Buttons(self):
-        self.refresh_btn.clicked.connect(self.getData())
+        self.refresh_btn.clicked.connect(self.getData)
         
     # function that pulls data from the database
     def getData(self):
         # establishing connection to the database
-        connection = pymysql.connect(host="localhost", user="root", password="", dbname="inventory_manager", charset="utf8mb")
+        connection = pymysql.connect(host="localhost", user="root", password="", database="inventory_manager", charset="utf8mb4")
+        
+        #creating a controller object for managing database query
+        controller = connection.cursor()
+        sql = '''SELECT * FROM data'''
+        result = controller.execute(sql)
+        
+        #initialization of the number of rows in the table
+        self.inventory_table.setRowCount(0)
+        
+        #looping through the returned dat
+        for row_count, row_data in enumerate(result):
+            self.inventory_table.insertRow(row_count)
+            for column_count, data in enumerate(row_data):
+                self.inventory_table.setItem(row_count, column_count, QTableWidgetItem(str(data)))
     
-    # the specific code for the inventory manager project
+# the specific code for the inventory manager project
     
 #method main begins execution of python program 
 def main():
