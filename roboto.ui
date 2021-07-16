@@ -24,7 +24,7 @@
       <x>0</x>
       <y>60</y>
       <width>801</width>
-      <height>471</height>
+      <height>481</height>
      </rect>
     </property>
     <property name="font">
@@ -33,7 +33,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -280,12 +280,12 @@ color: rgb(255, 0, 0);</string>
        <string>0</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_14">
+     <widget class="QLabel" name="min_num_holes_label_ref">
       <property name="geometry">
        <rect>
         <x>610</x>
         <y>30</y>
-        <width>61</width>
+        <width>121</width>
         <height>61</height>
        </rect>
       </property>
@@ -300,15 +300,15 @@ color: rgb(255, 0, 0);</string>
        <string notr="true">color: rgb(255, 0, 0);</string>
       </property>
       <property name="text">
-       <string>REF</string>
+       <string>REF:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_15">
+     <widget class="QLabel" name="max_num_holes_label_ref">
       <property name="geometry">
        <rect>
         <x>610</x>
         <y>100</y>
-        <width>51</width>
+        <width>111</width>
         <height>61</height>
        </rect>
       </property>
@@ -324,7 +324,7 @@ color: rgb(255, 0, 0);</string>
 rgb(255, 0, 0)</string>
       </property>
       <property name="text">
-       <string>REF</string>
+       <string>REF:</string>
       </property>
      </widget>
      <widget class="QTableWidget" name="inventory_stat_table">
