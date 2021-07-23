@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>804</width>
+    <width>973</width>
     <height>695</height>
    </rect>
   </property>
@@ -18,22 +18,51 @@
     <normaloff>../../../Users/CyberLord/Pictures/geocipher3.jpg</normaloff>../../../Users/CyberLord/Pictures/geocipher3.jpg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>60</y>
-      <width>801</width>
-      <height>481</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QToolTip
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">  background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #616161, stop: 0.5 #505050, stop: 0.6 #434343, stop:1 #656565);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #6c6c6c;</string>
+            </property>
+            <property name="text">
+             <string>Inventory Manager</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTabWidget" name="tabWidget">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolTip
 {
      border: 1px solid black;
      background-color: #ffa02f;
@@ -552,796 +581,756 @@ QAbstractSpinBox {
     min-width: 50px;
 }
 </string>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Inventory</string>
-     </attribute>
-     <widget class="QTableWidget" name="inventory_table">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>30</y>
-        <width>801</width>
-        <height>401</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <column>
-       <property name="text">
-        <string>Id</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Reference</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string> Part  Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Min Area</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Max Area</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Num Holes</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Min Diameter</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Max Diameter</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Count</string>
-       </property>
-      </column>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>801</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:rgb(255, 255, 255);
+            </property>
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <widget class="QWidget" name="tab">
+             <attribute name="title">
+              <string>Inventory</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:rgb(255, 255, 255);
 </string>
-      </property>
-      <property name="text">
-       <string>Search For references With Count Level lower or equal to: </string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="count_level_filter">
-      <property name="geometry">
-       <rect>
-        <x>481</x>
-        <y>0</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="search_push_button">
-      <property name="geometry">
-       <rect>
-        <x>584</x>
-        <y>0</y>
-        <width>121</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Search</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>Inventory Statistics</string>
-     </attribute>
-     <widget class="QLabel" name="Num_ref_label">
-      <property name="geometry">
-       <rect>
-        <x>16</x>
-        <y>42</y>
-        <width>181</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Number of References</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="min_num_holes_label">
-      <property name="geometry">
-       <rect>
-        <x>266</x>
-        <y>42</y>
-        <width>181</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Min Number of Holes</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="num_of_ref_value">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>30</y>
-        <width>41</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="num_parts_value">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>100</y>
-        <width>41</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="min_num_hole_value">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>30</y>
-        <width>41</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:rgb(255, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="max_num_hole_value">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>100</y>
-        <width>41</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">
+                </property>
+                <property name="text">
+                 <string>Search For references With Count Level lower or equal to: </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QSpinBox" name="count_level_filter"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="search_push_button">
+                    <property name="text">
+                     <string>Search</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QTableWidget" name="inventory_table">
+                  <property name="font">
+                   <font>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <column>
+                   <property name="text">
+                    <string>Id</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Reference</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string> Part  Name</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Min Area</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Max Area</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Num Holes</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Min Diameter</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Max Diameter</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Count</string>
+                   </property>
+                  </column>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_2">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tab_3">
+             <attribute name="title">
+              <string>Inventory Statistics</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QFrame" name="frame_3">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_6">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <item>
+                      <widget class="QLabel" name="min_num_holes_label">
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Min Number of Holes</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="num_of_ref_value">
+                       <property name="font">
+                        <font>
+                         <pointsize>22</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(255, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>0</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="Num_ref_label">
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Number of References</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="min_num_hole_value">
+                       <property name="font">
+                        <font>
+                         <pointsize>22</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color:rgb(255, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>0</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_2">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="min_num_holes_label_ref">
+                       <property name="font">
+                        <font>
+                         <pointsize>22</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(255, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>REF:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_5">
+                     <item>
+                      <widget class="QLabel" name="Num_part_type_label">
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Number of Part Types</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="num_parts_value">
+                       <property name="font">
+                        <font>
+                         <pointsize>22</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(255, 0, 0);</string>
+                       </property>
+                       <property name="text">
+                        <string>0</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="max_num_holes_label">
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Max Number of Holes</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="max_num_hole_value">
+                       <property name="font">
+                        <font>
+                         <pointsize>22</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">
 color: rgb(255, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="min_num_holes_label_ref">
-      <property name="geometry">
-       <rect>
-        <x>610</x>
-        <y>30</y>
-        <width>121</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>REF:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="max_num_holes_label_ref">
-      <property name="geometry">
-       <rect>
-        <x>610</x>
-        <y>100</y>
-        <width>121</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:
+                       </property>
+                       <property name="text">
+                        <string>0</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_3">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="max_num_holes_label_ref">
+                       <property name="font">
+                        <font>
+                         <pointsize>22</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color:
 rgb(255, 0, 0)</string>
-      </property>
-      <property name="text">
-       <string>REF:</string>
-      </property>
-     </widget>
-     <widget class="QTableWidget" name="inventory_stat_table">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>210</y>
-        <width>671</width>
-        <height>192</height>
-       </rect>
-      </property>
-      <column>
-       <property name="text">
-        <string>Reference</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Part Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Count</string>
-       </property>
-      </column>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>180</y>
-        <width>671</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);
+                       </property>
+                       <property name="text">
+                        <string>REF:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_4">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_16">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 255, 255);
 </string>
-      </property>
-      <property name="text">
-       <string>Top Three References with Minimum inventory level</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="check_btn">
-      <property name="geometry">
-       <rect>
-        <x>700</x>
-        <y>252</y>
-        <width>81</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Check</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="max_num_holes_label">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>110</y>
-        <width>181</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Max Number of Holes</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="Num_part_type_label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>120</y>
-        <width>181</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Number of Part Types</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Edit Inventory</string>
-     </attribute>
-     <widget class="QLabel" name="edit_inventory_ref_label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Reference</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inventory_label_partname">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>200</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Part Name</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inventory_min_area_label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>270</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Min Area</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inven_num_of_holes_label">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>130</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Number of Holes</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inven_min_diameter_label">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>190</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Min Diameter</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_invetory_max_diameter_label">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>270</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Max Diameter</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inventory_max_area_label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>350</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Max Area</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inven_count_label">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>340</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Count</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="edit_inv_reference_linedit">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>140</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inv_idlabel">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>50</y>
-        <width>41</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>ID</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="edit_inv_partname_linedit">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>200</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="edit_inv_max_area_linedit">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>350</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="edit_inv_minarea_linedit">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>270</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="edit_inv_numofholes_linedit">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>140</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="edit_inv_mindiameter_linedit">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>190</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="edit_inv_maxdiameter_linedit">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>270</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="edit_inv_count_linedit">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>340</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="add_btn">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
-        <y>400</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>ADD</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="delete_btn">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>400</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>DELETE</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="update_btn">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>400</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>UPDATE</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="first_btn">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>400</y>
-        <width>52</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;&lt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="prev_btn">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>400</y>
-        <width>52</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="last_btn">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>400</y>
-        <width>52</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>&gt;&gt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="next_btn">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>400</y>
-        <width>52</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="edit_inv_idlabel_2">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>40</y>
-        <width>101</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(65, 65, 65);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>-24</x>
-      <y>0</y>
-      <width>831</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">  background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #616161, stop: 0.5 #505050, stop: 0.6 #434343, stop:1 #656565);
-    color: white;
-    padding-left: 4px;
-    border: 1px solid #6c6c6c;</string>
-    </property>
-    <property name="text">
-     <string>Inventory Manager</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="refresh_btn">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>550</y>
-      <width>151</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>-1</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+                </property>
+                <property name="text">
+                 <string>Top Three References with Minimum inventory level</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="inventory_stat_table">
+                <column>
+                 <property name="text">
+                  <string>Reference</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Part Name</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Count</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="check_btn">
+                <property name="styleSheet">
+                 <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Check</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tab_2">
+             <attribute name="title">
+              <string>Edit Inventory</string>
+             </attribute>
+             <widget class="QLabel" name="edit_inventory_ref_label">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>130</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Reference</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inventory_label_partname">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>200</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Part Name</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inventory_min_area_label">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>270</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Min Area</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inven_num_of_holes_label">
+              <property name="geometry">
+               <rect>
+                <x>300</x>
+                <y>130</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Number of Holes</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inven_min_diameter_label">
+              <property name="geometry">
+               <rect>
+                <x>300</x>
+                <y>190</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Min Diameter</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_invetory_max_diameter_label">
+              <property name="geometry">
+               <rect>
+                <x>300</x>
+                <y>270</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Max Diameter</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inventory_max_area_label">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>350</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Max Area</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inven_count_label">
+              <property name="geometry">
+               <rect>
+                <x>300</x>
+                <y>340</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Count</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="edit_inv_reference_linedit">
+              <property name="geometry">
+               <rect>
+                <x>110</x>
+                <y>140</y>
+                <width>131</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inv_idlabel">
+              <property name="geometry">
+               <rect>
+                <x>150</x>
+                <y>50</y>
+                <width>41</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>ID</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="edit_inv_partname_linedit">
+              <property name="geometry">
+               <rect>
+                <x>110</x>
+                <y>200</y>
+                <width>131</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="edit_inv_max_area_linedit">
+              <property name="geometry">
+               <rect>
+                <x>110</x>
+                <y>350</y>
+                <width>131</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="edit_inv_minarea_linedit">
+              <property name="geometry">
+               <rect>
+                <x>110</x>
+                <y>270</y>
+                <width>131</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="edit_inv_numofholes_linedit">
+              <property name="geometry">
+               <rect>
+                <x>420</x>
+                <y>140</y>
+                <width>131</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="edit_inv_mindiameter_linedit">
+              <property name="geometry">
+               <rect>
+                <x>420</x>
+                <y>190</y>
+                <width>131</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="edit_inv_maxdiameter_linedit">
+              <property name="geometry">
+               <rect>
+                <x>420</x>
+                <y>270</y>
+                <width>131</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QSpinBox" name="edit_inv_count_linedit">
+              <property name="geometry">
+               <rect>
+                <x>460</x>
+                <y>340</y>
+                <width>91</width>
+                <height>31</height>
+               </rect>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="add_btn">
+              <property name="geometry">
+               <rect>
+                <x>620</x>
+                <y>400</y>
+                <width>101</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>ADD</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="delete_btn">
+              <property name="geometry">
+               <rect>
+                <x>510</x>
+                <y>400</y>
+                <width>101</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>DELETE</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="update_btn">
+              <property name="geometry">
+               <rect>
+                <x>400</x>
+                <y>400</y>
+                <width>101</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>UPDATE</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="first_btn">
+              <property name="geometry">
+               <rect>
+                <x>60</x>
+                <y>400</y>
+                <width>52</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>&lt;&lt;</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="prev_btn">
+              <property name="geometry">
+               <rect>
+                <x>120</x>
+                <y>400</y>
+                <width>52</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>&lt;</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="last_btn">
+              <property name="geometry">
+               <rect>
+                <x>240</x>
+                <y>400</y>
+                <width>52</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>&gt;&gt;</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="next_btn">
+              <property name="geometry">
+               <rect>
+                <x>180</x>
+                <y>400</y>
+                <width>52</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>&gt;</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="edit_inv_idlabel_2">
+              <property name="geometry">
+               <rect>
+                <x>210</x>
+                <y>40</y>
+                <width>101</width>
+                <height>51</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(65, 65, 65);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="refresh_btn">
+            <property name="font">
+             <font>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"> background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
 color:rgb(170, 170, 255);
 
 
@@ -1358,52 +1347,44 @@ color:rgb(170, 170, 255);
     min-width: 40px;
 
 </string>
-    </property>
-    <property name="text">
-     <string>Refresh</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>600</y>
-      <width>791</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
+            </property>
+            <property name="text">
+             <string>Refresh</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
     background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #616161, stop: 0.5 #505050, stop: 0.6 #434343, stop:1 #656565);
     color: white;
     padding-left: 4px;
     border: 1px solid #6c6c6c;
 </string>
-    </property>
-    <property name="text">
-     <string>Inventory Manager For Mechanical Engineering Workshop</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>804</width>
-     <height>21</height>
-    </rect>
-   </property>
+            </property>
+            <property name="text">
+             <string>Inventory Manager For Mechanical Engineering Workshop</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

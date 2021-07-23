@@ -6,18 +6,23 @@ from PyQt5.QtCore import *
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QApplication
+import sqlite3
 
-import sys
+import sys, os
 from os import path
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller"""
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
 from PyQt5.sip import dump
 from PyQt5.uic import loadUiType
 
-FORM_CLASS,_=loadUiType(path.join(path.dirname('__file__'),"roboto.ui"))
-import pymysql 
+FORM_CLASS,_=loadUiType(resource_path("roboto.ui"))
 
 class Main(QMainWindow, FORM_CLASS):
     # creating class properties to handle database connection
-    connection = pymysql.connect(host="localhost", user="root", password="", database="inventory_manager", charset="utf8mb4")  # establishing connection to the database
+    connection = sqlite3.connect(resource_path("parts.db"))  # establishing connection to the database
     #creating a controller object for managing database query
     controller = connection.cursor()
     
@@ -44,7 +49,7 @@ class Main(QMainWindow, FORM_CLASS):
     def search(self, id):
         nbr = int(self.count_level_filter.text())
        
-        sql = 'SELECT * FROM data WHERE count < %d'%(nbr)
+        sql = 'SELECT * FROM parts_table WHERE count < %d'%(nbr)
         Main.controller.execute(sql)
         result = Main.controller.fetchall()
         
@@ -57,7 +62,7 @@ class Main(QMainWindow, FORM_CLASS):
             for column_count, data in enumerate(row_data):
                 self.inventory_table.setItem(row_count, column_count, QTableWidgetItem(str(data)))
     def level(self):
-        sql = 'SELECT reference, partname, count FROM data order by count asc limit 3'
+        sql = 'SELECT reference, partname, count FROM parts_table order by count asc limit 3'
         Main.controller.execute(sql)
         result = Main.controller.fetchall()
         
@@ -72,7 +77,7 @@ class Main(QMainWindow, FORM_CLASS):
         
     # function that pulls data from the database
     def getData(self):
-        sql = '''SELECT * FROM data'''
+        sql = '''SELECT * FROM parts_table'''
         Main.controller.execute(sql)
         result = Main.controller.fetchall()
         
@@ -90,10 +95,10 @@ class Main(QMainWindow, FORM_CLASS):
         controller4 = Main.connection.cursor()
         controller5 = Main.connection.cursor()
         
-        parts_number = 'SELECT count(DISTINCT partname) from data'
-        reference_number = 'SELECT count(DISTINCT  reference) from data'
-        min_hole ='SELECT MIN(number_of_holes),  reference from data'
-        max_hole ='SELECT MAX(number_of_holes),  reference from data'
+        parts_number = 'SELECT count(DISTINCT partname) from parts_table'
+        reference_number = 'SELECT count(DISTINCT  reference) from parts_table'
+        min_hole ='SELECT MIN(numberofholes),  reference from parts_table'
+        max_hole ='SELECT MAX(numberofholes),  reference from parts_table'
        
         
         controller2.execute(parts_number)
@@ -117,7 +122,7 @@ class Main(QMainWindow, FORM_CLASS):
         self.max_num_holes_label_ref.setText(str(max_hole_result[1]))
     
     def navigate(self):
-        sql = 'SELECT * FROM data'
+        sql = 'SELECT * FROM parts_table'
         result = Main.controller.execute(sql)
         result = Main.controller.fetchone()
         
@@ -145,8 +150,9 @@ class Main(QMainWindow, FORM_CLASS):
         max_diameter_ = float(self.edit_inv_maxdiameter_linedit.text())
         count_ = int(self.edit_inv_count_linedit.value())
         
-        sql = 'insert into data(reference, partname, minarea, maxarea, number_of_holes, mindiameter, maxdiameter, count) values("%s","%s","%f","%f", "%d","%f","%f","%d")' %(reference_, part_name_, min_area_, max_area_, number_of_holes_, min_diameter_, max_diameter_, count_)
-        Main.controller.execute(sql)
+        row = (reference_,part_name_,min_area_,max_area_,number_of_holes_,min_diameter_,max_diameter_,count_)
+        sql = '''INSERT INTO parts_table(reference, partname, minarea, maxarea, numberofholes, mindiameter, maxdiameter, count) VALUES(?,?,?,?,?,?,?,?)'''
+        Main.controller.execute(sql,row)
         Main.connection.commit()
     def delete(self):
         d = int(self.edit_inv_idlabel_2.text())
@@ -166,13 +172,14 @@ class Main(QMainWindow, FORM_CLASS):
         max_diameter_ = float(self.edit_inv_maxdiameter_linedit.text())
         count_ = int(self.edit_inv_count_linedit.value())
         
-        sql = 'update data set reference=%s, partname=%s, minarea=%f, maxarea=%f, number_of_holes%d, mindiameter=%f, maxdiameter=%f, count=%d where id =%d' %(reference_, part_name_, min_area_, max_area_, number_of_holes_, min_diameter_, max_diameter_, count_, id)
-        Main.controller.execute(sql)
+        row = (reference_,part_name_,min_area_,max_area_,number_of_holes_,min_diameter_,max_diameter_,count_, id)
+        sql = '''UPDATE parts_table SET reference=?, partname=?, minarea=?, maxarea=?, numberofholes=?, mindiameter=?, maxdiameter=?, count=? where id = ?'''
+        Main.controller.execute(sql,row)
         Main.connection.commit()
         
     def delete(self):
         d = int(self.edit_inv_idlabel_2.text())
-        sql = 'DELETE FROM data where id=%d'%(d)
+        sql = 'DELETE FROM parts_table where id=%d'%(d)
         Main.controller.execute(sql)
         Main.connection.commit()
         
